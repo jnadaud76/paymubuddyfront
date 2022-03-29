@@ -14,11 +14,12 @@ export class DashboardComponent implements OnInit {
   constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
-   if (localStorage.getItem('currentUser')) {
+    this.currentUser = this.loginService.currentUserValue;
+   /*if (localStorage.getItem('currentUser')) {
      this.currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
-   }
+   }*/
   }
- onLogout(){
+ /*onLogout(){
     this.loginService.logout();
- }
+ }*/
 }

@@ -1,6 +1,6 @@
 export class TransactionModel {
-   id!: number;
-   date!: Date;
+   transactionFullDtoId?: number;
+   date?: Date;
    recipient!: number;
     sender!: number;
     amount!: number;

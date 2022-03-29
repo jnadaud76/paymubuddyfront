@@ -11,6 +11,10 @@ import {LoginComponent} from "./login/login.component";
 import {PersonComponent} from "./person/person.component";
 import {PersonListComponent} from "./person-list/person-list.component";
 import {SinglePersonComponent} from "./single-person/single-person.component";
+import { HeaderComponent } from './header/header.component';
+import { AddconnectionComponent } from './addconnection/addconnection.component';
+import { SendmoneyComponent } from './sendmoney/sendmoney.component';
+import { MytransactionsComponent } from './mytransactions/mytransactions.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import {SinglePersonComponent} from "./single-person/single-person.component";
     PersonComponent,
     PersonListComponent,
     SinglePersonComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    HeaderComponent,
+    AddconnectionComponent,
+    SendmoneyComponent,
+    MytransactionsComponent
   ],
   imports: [
     BrowserModule,

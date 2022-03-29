@@ -1,5 +1,9 @@
 
-TEST
+<app-header></app-header>
 <!--<app-person-list></app-person-list>-->
-<h2>{{currentUser.personFullDtoId}}</h2>
-<button (click)="onLogout()" class="btn btn-primary">Logout</button>
+<body>
+<h2>Welcome {{currentUser.firstName}} {{currentUser.lastName}}</h2>
+<!--button (click)="onLogout()" class="btn btn-primary">Logout</button-->
+</body>
+<app-sendmoney></app-sendmoney>
+<app-mytransactions></app-mytransactions>

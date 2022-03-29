@@ -2,9 +2,9 @@ import {PersonModel} from "./person.model";
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
-const httpOptions = {
+/*const httpOptions = {
   headers : new HttpHeaders( {'Content-Type': 'application/json'})
-};
+};*/
 @Injectable({
   providedIn: 'root'
 })
@@ -18,6 +18,10 @@ export class PersonService {
   }
 
   getPersonById(personId: number): Observable<PersonModel> {
-    return this.http.get<PersonModel>(`http://localhost:8080/person?${personId}`);
+    return this.http.get<PersonModel>(`http://localhost:8080/person?personId=${personId}`);
+  }
+
+  getConnectionFromPerson(personId: number):  Observable<PersonModel[]> {
+    return this.http.get<PersonModel[]>(`http://localhost:8080/connections?personId=${personId}`);
   }
 }
