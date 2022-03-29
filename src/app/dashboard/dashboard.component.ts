@@ -8,14 +8,15 @@ import {PersonModel} from "../shared/person.model";
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
- // @ts-ignore
-  currentUser: PersonModel
+
+  currentUser!: PersonModel
 
   constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
-    // @ts-ignore
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'))
+   if (localStorage.getItem('currentUser')) {
+     this.currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+   }
   }
  onLogout(){
     this.loginService.logout();

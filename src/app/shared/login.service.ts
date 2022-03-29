@@ -15,8 +15,8 @@ export class LoginService {
 
   constructor(private http: HttpClient, private router: Router) {
 
-      // @ts-ignore
-    this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
+
+    this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser') || '{}'));
     this.currentUser = this.currentUserSubject.asObservable();
     }
 
@@ -37,7 +37,7 @@ export class LoginService {
     const headers=new HttpHeaders({Authorization : 'Basic '+ btoa(username+":"+password)})
      //sessionStorage.setItem('currentUser', JSON.stringify(this.getCurrentUser()))
       //return this.http.get("http://localhost:8080/persons")
-     return this.http.get(`http://localhost:8080/email?email=${username}`, {headers})
+     return this.http.get(`http://localhost:8080/user?email=${username}`, {headers})
        .pipe(map(user => {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify(user));
@@ -65,10 +65,21 @@ export class LoginService {
       return this.http.get("http://localhost:8080/user");
     }*/
 
-   saveUser(user: PersonModel): any {
+  saveUser(user: PersonModel): any {
     return this.http.post('http://localhost:8080/person', user);
   }
 
+  /*saveUser(formValue :{email: string, lastName: string,
+    firstName: string, password: string, iban: string}) {
+ const user: PersonModel = {
+   email: this.registerForm.value.email,
+   lastName: this.registerForm.value.lastName,
+   firstName: this.registerForm.value.firstName,
+   password: this.registerForm.value.password,
+   iban: this.registerForm.value.iban,
+   amountAvailable:0,
+ }
+  }*/
   /*login(user: any): any {
    const bodyFormData = new FormData();
     bodyFormData.set('username', user.email);

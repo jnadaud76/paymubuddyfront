@@ -4,6 +4,8 @@ import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {PersonModel} from "../shared/person.model";
 import{LoginService} from "../shared/login.service";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AuthModel} from "../shared/auth.model";
 
 @Component({
   selector: 'login',
@@ -13,22 +15,31 @@ import{LoginService} from "../shared/login.service";
 
 export class LoginComponent implements OnInit {
   //model: any = {}
-  /*user: PersonModel = {
+ /* user: PersonModel = {
     email: '',
     password: ''
   }*/
+
+  //auth!: AuthModel;
   username!: string;
   password!: string;
-
-
+  //loginForm!: FormGroup;
+  //login$! : Observable<AuthModel>;
 
   constructor(
-    private router: Router, private loginService: LoginService,
+    private router: Router, private loginService: LoginService, private formBuilder : FormBuilder
    ) {
   }
 
   ngOnInit() {
     //sessionStorage.setItem();
+    /*this.loginForm = this.formBuilder.group({
+      username: [null,[Validators.required]],
+      password: [null,[Validators.required]],
+    },{
+      updateOn: 'blur'
+    });
+    this.login$ = this.loginForm.valueChanges;*/
   }
 
   onLogin() {
@@ -39,6 +50,7 @@ export class LoginComponent implements OnInit {
     sessionStorage.setItem('currentuser', JSON.stringify(user))*/
   })
   }
+
 
 
 logOut() {
