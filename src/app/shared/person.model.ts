@@ -1,9 +1,9 @@
 export class PersonModel {
-  personFullDtoId?: number;
+  id?: number;
   firstName?: string;
   lastName?: string;
-  email!: string;
-  password!: string;
+  email?: string;
+  password?: string;
   iban?: string;
   amountAvailable?: number;
 

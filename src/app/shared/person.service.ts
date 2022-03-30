@@ -17,6 +17,10 @@ export class PersonService {
     return this.http.get<PersonModel[]>('http://localhost:8080/persons');
   }
 
+  getAllPossibleConnection(personId: number): Observable<PersonModel[]> {
+    return this.http.get<PersonModel[]>(`http://localhost:8080/possibleconnections?personId=${personId}`);
+  }
+
   getPersonById(personId: number): Observable<PersonModel> {
     return this.http.get<PersonModel>(`http://localhost:8080/person?personId=${personId}`);
   }

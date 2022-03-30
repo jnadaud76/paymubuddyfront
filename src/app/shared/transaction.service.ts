@@ -24,4 +24,8 @@ export class TransactionService {
     //const headers=new HttpHeaders({Authorization : 'Basic '+ btoa(this.currentUser.email+":"+this.currentUser.password)})
     return this.http.get<TransactionModel[]>(`http://localhost:8080/transactions/sender?senderId=${senderId}`);
   }
+
+  saveTransaction(transaction: TransactionModel): any {
+    return this.http.post('http://localhost:8080/transaction', transaction);
+  }
 }
