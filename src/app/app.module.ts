@@ -12,9 +12,10 @@ import {PersonComponent} from "./person/person.component";
 import {PersonListComponent} from "./person-list/person-list.component";
 import {SinglePersonComponent} from "./single-person/single-person.component";
 import { HeaderComponent } from './header/header.component';
-import {AddConnectionComponent} from './addconnection/addconnection.component';
+import {AddconnectionComponent} from './addconnection/addconnection.component';
 import { SendmoneyComponent } from './sendmoney/sendmoney.component';
 import { MytransactionsComponent } from './mytransactions/mytransactions.component';
+import {NgxPaginationModule} from "ngx-pagination";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { MytransactionsComponent } from './mytransactions/mytransactions.compone
     SinglePersonComponent,
     RegistrationComponent,
     HeaderComponent,
-    AddConnectionComponent,
+    AddconnectionComponent,
     SendmoneyComponent,
     MytransactionsComponent
   ],
@@ -35,7 +36,8 @@ import { MytransactionsComponent } from './mytransactions/mytransactions.compone
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

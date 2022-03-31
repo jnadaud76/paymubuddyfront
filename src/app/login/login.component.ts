@@ -44,11 +44,13 @@ export class LoginComponent implements OnInit {
 
   onLogin() {
   let resp= this.loginService.login(this.username,this.password)
-  resp.subscribe(data=>{
-       this.router.navigate(["/dashboard"])
+ /* resp.subscribe(data =>{
+           this.router.navigate(['/dashboard']);*/
+    resp.subscribe()
+    this.router.navigate(['/dashboard']);
    /* let user = this.loginService.getCurrentUser()
     sessionStorage.setItem('currentuser', JSON.stringify(user))*/
-  })
+ // })
   }
 
 

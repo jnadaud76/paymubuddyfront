@@ -21,6 +21,10 @@ export class PersonService {
     return this.http.get<PersonModel[]>(`http://localhost:8080/possibleconnections?personId=${personId}`);
   }
 
+  addConnection(personId: number, connectionId: number) : any {
+    // @ts-ignore
+    return this.http.put<any>(`http://localhost:8080/person/connection/add?personId=${personId}&connectionId=${connectionId}`);
+  }
   getPersonById(personId: number): Observable<PersonModel> {
     return this.http.get<PersonModel>(`http://localhost:8080/person?personId=${personId}`);
   }

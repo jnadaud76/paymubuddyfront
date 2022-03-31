@@ -3,9 +3,9 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {BehaviorSubject, map, Observable} from "rxjs";
 import {PersonModel} from "./person.model";
 import {Router} from "@angular/router";
-/*const httpOptions = {
+const httpOptions = {
   headers : new HttpHeaders( {'Content-Type': 'application/json'})
-};*/
+};
 @Injectable({
   providedIn: 'root'
 })
