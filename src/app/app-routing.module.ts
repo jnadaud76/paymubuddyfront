@@ -8,6 +8,7 @@ import {AddconnectionComponent} from "./addconnection/addconnection.component";
 import {HeaderComponent} from "./header/header.component";
 import {SendmoneyComponent} from "./sendmoney/sendmoney.component";
 import {MytransactionsComponent} from "./mytransactions/mytransactions.component";
+import {BanktransferComponent} from "./banktransfer/banktransfer.component";
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
   {path : 'addconnection', component: AddconnectionComponent},
+  {path: 'banktransfer', component: BanktransferComponent},
   { path: '', redirectTo: 'dashboard', pathMatch:'full' }
 
 ];

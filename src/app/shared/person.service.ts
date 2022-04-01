@@ -32,4 +32,15 @@ export class PersonService {
   getConnectionFromPerson(personId: number):  Observable<PersonModel[]> {
     return this.http.get<PersonModel[]>(`http://localhost:8080/connections?personId=${personId}`);
   }
+
+ toIbanTransfer(personId: number, amount: number): any {
+   // @ts-ignore
+  return this.http.put<any>(`http://localhost:8080/toiban?personId=${personId}&amount=${amount}`);
+ }
+
+  fromIbanTransfer(personId: number, amount: number): any {
+    // @ts-ignore
+    return this.http.put<any>(`http://localhost:8080/fromiban?personId=${personId}&amount=${amount}`);
+  }
+
 }
