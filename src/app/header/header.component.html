@@ -1,0 +1,24 @@
+<header class="row">
+  <div class="col-2 text-center text-white rounded bg-success">
+  <h2>Pay My Buddy</h2>
+  </div>
+  <div class="col-9 text-end">
+  <nav>
+    <a id="home" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a routerLink="Transfer" routerLinkActive="active">Transfer</a>
+    <a routerLink="Profile" routerLinkActive="active">Profile</a>
+    <a routerLink="Contact" routerLinkActive="active">Contact</a>
+  </nav>
+  </div>
+  <div class="col-1 text-end">
+    <button (click)="onLogout()" class="btn btn-primary">Logout</button>
+  </div>
+  </header>
+
+<nav style="-bs-breadcrumb-divider: '/';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#home">Home</a></li>
+    <li class="breadcrumb-item"><a href="#transfer">Transfer</a></li>
+    <li class="breadcrumb-item active" aria-current="page"></li>
+  </ol>
+</nav>

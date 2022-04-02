@@ -1,0 +1,48 @@
+<div class="title col-12 text-center bg-black text-white py-1 mb-5">
+  <h2>Pay My Buddy</h2>
+</div>
+<div class="col-8 mx-auto py-3">
+<h1 class="text-center pb-5">Bank Transfer Service</h1>
+
+  <h3 class="text-center pt-5">Transfer money to your bank</h3>
+  <div class="row mx-auto py-4 text-center">
+    <div class="col-3">
+      <h5>Amount Available</h5>
+      <h4>{{this.currentUser.amountAvailable}}</h4>
+    </div>
+    <div class="col-3">
+      <label for="amounttobank"></label>Amount<br>
+      <input class="col-6 text-center" id="amounttobank" [formControl]="controlToBank" type="number" [(ngModel)]="amountToBank" placeholder="Multiple de 10" step="10" min="0" max="1000">
+      <!--div *ngIf="control.invalid" style="color: red">Required</div-->
+    </div>
+    <div class="col-3">
+      <h5>IBAN</h5>
+      <h6>{{this.currentUser.iban}}</h6>
+    </div>
+    <div class="col-3 pt-3">
+      <button type="submit" (click)="toBank()" class="btn btn-primary bg-success" [disabled]="controlToBank.invalid">Transfer to bank</button>
+    </div>
+</div>
+
+    <h3 class="text-center pt-5">Transfer money from your bank</h3>
+    <div class="row mx-auto py-4 text-center">
+      <div class="col-3">
+        <h5>IBAN</h5>
+        <h6>{{this.currentUser.iban}}</h6>
+      </div>
+      <div class="col-3">
+        <label for="amountfrombank"></label>Amount<br>
+        <input class="col-6 text-center" id="amountfrombank"  [formControl]="controlFromBank" type="number" [(ngModel)]="amountFromBank" placeholder="Multiple de 10" step="10" min="0" max="1000">
+      </div>
+      <div class="col-3">
+        <h5>Amount Available</h5>
+        <h4>{{this.currentUser.amountAvailable}}</h4>
+      </div>
+      <div class="col-3 pt-3">
+        <button type="submit" (click)="fromBank()" class="btn btn-primary bg-success" [disabled]="controlFromBank.invalid">Transfer From bank</button>
+      </div>
+
+  </div>
+  <div><a routerLink="" routerLinkActive="active">Retour</a></div>
+</div>
+

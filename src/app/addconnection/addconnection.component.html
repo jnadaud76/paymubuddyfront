@@ -1,0 +1,21 @@
+<div class="title col-12 text-center bg-black text-white py-1 mb-5">
+  <h2>Pay My Buddy</h2>
+</div>
+<div class="add-connection container col-4">
+  <div class="row">
+  <div class="col-8">
+    <label for="connection">Select a connexion</label><br>
+    <!--input class="" id="connection"  type="text"  formControlName="recipient"-->
+    <select id="connection"  type="text"  [formControl]=connection> <!--(change)="update($event)"-->
+      <option value="default">Default select</option>
+      <option *ngFor="let personModel of connections$ | async" [ngValue]=personModel.id>
+        <!--span [hidden]="true">{{personModel.personFullDtoId}}</span--> {{personModel.email}} </option>
+    </select>
+  </div>
+    <div class="col-4 pt-3">
+      <button type="submit" (click)="onSubmit()" class="btn btn-primary">Add Connection</button>
+    </div>
+  </div>
+  <div class=""><a routerLink="" routerLinkActive="active">Retour</a></div>
+</div>
+

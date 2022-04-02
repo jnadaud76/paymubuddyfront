@@ -1,0 +1,66 @@
+
+<!--div class="row mx-auto border border-dark">
+  <div class="col-6 mx-auto border border-dark">
+  <h2>Send Money</h2>
+  <select class="form-control" #choice (change)="update($event)">
+    <option value="default">Default select</option>
+    <option *ngFor="let personModel of userConnection$ | async" [value]="personModel">{{personModel.firstName}} {{personModel.lastName}}</option>
+  </select>
+  </div>
+  <div class="col-6 mx-auto pt-5 border border-dark">
+    <input type="number"  [(ngModel)]="amountToSend" placeholder="Multiple de 10" step="10">
+  </div>
+  <div>
+
+  </div>
+</div-->
+<div class="sendmoney-container col-8 mx-auto py-5">
+<form [formGroup]="sendMoneyForm" >
+  <div class="col-3 text-start ">
+    <h2>Send Money</h2>
+  </div>
+
+  <div class="row pt-2">
+
+    <div class="col-6">
+      <h5>Amount Available</h5>
+      <h4 class="offset-1 ">{{this.currentUser.amountAvailable}}</h4>
+    </div>
+
+    <div class="col-3 text-end">
+      <button type="submit" (click)="onTransferBank()" class="btn btn-primary">Bank Transfer</button>
+    </div>
+
+   <div class="col-3 text-end">
+    <button type="submit" (click)="onAddConnection()" class="btn btn-primary">Add Connection</button>
+   </div>
+  </div>
+  <div class="row pt-2">
+  <div class="form-group col-3">
+    <label for="connection">Connection</label><br>
+    <!--input class="" id="connection"  type="text"  formControlName="recipient"-->
+    <select id="connection"  type="text"  formControlName="recipient" (change)="update($event)">
+      <option value="default">Default select</option>
+      <option *ngFor="let personModel of userConnection$ | async" [ngValue]=personModel.id>
+       <!--span [hidden]="true">{{personModel.personFullDtoId}}</span--> {{personModel.email}} </option>
+    </select>
+  </div>
+
+    <div class="form-group col-3">
+      <label class="offset-2" for="amount"></label>Amount<br>
+      <input class="col-8 offset-2 text-center" id="amount"  type="number" placeholder="Multiple de 10" step="10" min="0" max="1000" formControlName="amount">
+    </div>
+
+    <div class="form-group col-3">
+      <label for="description">Description</label><br>
+      <input class="col-12" id="description"  type="text"  formControlName="description">
+    </div>
+
+    <div class="form-group col-3 pt-3">
+      <button type="submit" (click)="onPay()" class="btn btn-primary bg-success offset-1" [disabled]="sendMoneyForm.invalid">Pay</button>
+    </div>
+  </div>
+
+</form>
+</div>
+
