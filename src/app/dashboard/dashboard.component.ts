@@ -11,15 +11,10 @@ export class DashboardComponent implements OnInit {
 
   currentUser!: PersonModel
 
-  constructor(private loginService: LoginService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.currentUser = this.loginService.currentUserValue;
-   /*if (localStorage.getItem('currentUser')) {
-     this.currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
-   }*/
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
   }
- /*onLogout(){
-    this.loginService.logout();
- }*/
+
 }

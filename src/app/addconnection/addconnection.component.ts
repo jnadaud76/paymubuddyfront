@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
-import {TransactionModel} from "../shared/transaction.model";
 import {PersonModel} from "../shared/person.model";
 import {LoginService} from "../shared/login.service";
 import {PersonService} from "../shared/person.service";
-import {FormControl, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
+import {FormControl} from "@angular/forms";
+
 
 @Component({
   selector: 'app-addconnection',
@@ -21,18 +20,14 @@ export class AddconnectionComponent implements OnInit {
 
   constructor(private loginService: LoginService,
               private personService: PersonService,
-              private router:Router) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.currentUser = this.loginService.currentUserValue;
     this.connections$ = this.personService.getAllPossibleConnection(this.currentUser.id!)
-    this.connection= new FormControl();
-    //this.transactionService.saveTransaction(this.transaction).subscribe();
+    this.connection = new FormControl();
   }
-
-  /*update (e:any) {
-  this.connection = e.target.value;
-  }*/
 
   onSubmit() {
     this.personId = this.currentUser.id!;

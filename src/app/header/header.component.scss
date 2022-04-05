@@ -4,17 +4,52 @@ header {
   margin-bottom: 20px;
   padding: 10px;
 }
-a {
-  margin: 0 20px;
-  font-size: larger;
-  color: #333;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
+
+#topnav {
+  a {
+    margin: 0 20px;
+    font-size: larger;
+    color: #333;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    .active {
+      color: #666;
+      text-decoration: underline;
+    }
   }
 }
 
-.active {
-  color: #666;
-  text-decoration: underline;
+li {
+  vertical-align: top;
+  margin: 0;
 }
+
+li.breadcrumb-item {
+
+  color: blue;
+  font-size: 20px;
+
+  a {
+    text-decoration: none;
+  }
+
+}
+
+li.breadcrumb-item.active {
+  text-decoration: none;
+  font-size: 20px;
+  color: #333;
+
+}
+
+li.breadcrumb-item::before {
+  font-size: 20px;
+  color: blue;
+
+}
+
+

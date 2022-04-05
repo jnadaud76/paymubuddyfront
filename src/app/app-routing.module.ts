@@ -5,26 +5,18 @@ import {RegistrationComponent} from "./registration/registration.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {AuthGuard} from "./shared/auth.guard.service";
 import {AddconnectionComponent} from "./addconnection/addconnection.component";
-import {HeaderComponent} from "./header/header.component";
-import {SendmoneyComponent} from "./sendmoney/sendmoney.component";
-import {MytransactionsComponent} from "./mytransactions/mytransactions.component";
 import {BanktransferComponent} from "./banktransfer/banktransfer.component";
 
 
 const routes: Routes = [
-  {
-    path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard],
-    /*children: [
-      { path: 'header', component: HeaderComponent},
-      { path: 'sendmoney', component: SendmoneyComponent},
-      { path: 'mytransactions', component: MytransactionsComponent},
-    ]*/
-  },
-  { path: 'login', component: LoginComponent },
-  { path: 'registration', component: RegistrationComponent },
-  {path : 'addconnection', component: AddconnectionComponent},
-  {path: 'banktransfer', component: BanktransferComponent},
-  { path: '', redirectTo: 'dashboard', pathMatch:'full' }
+
+  {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+  {path: 'login', component: LoginComponent},
+  {path: 'registration', component: RegistrationComponent},
+  {path: 'addconnection', component: AddconnectionComponent, canActivate: [AuthGuard]},
+  {path: 'banktransfer', component: BanktransferComponent, canActivate: [AuthGuard]},
+  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+
 
 ];
 
@@ -36,4 +28,5 @@ const routes: Routes = [
     RouterModule
   ]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}

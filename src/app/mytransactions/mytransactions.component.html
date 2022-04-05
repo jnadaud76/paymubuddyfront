@@ -3,7 +3,6 @@
 <table class="table table-borderless text-center">
   <thead class="table-success">
   <tr>
-    <!--th class="col-0" scope="col" [hidden]="true">#</th-->
     <th class="col-3" scope="col">Connections</th>
     <th class="col-3" scope="col">Description</th>
     <th class="col-3" scope="col">Amount</th>
@@ -11,7 +10,6 @@
   </thead>
   <tbody *ngFor="let transactionModel of (transactions$ | async)! | paginate:{itemsPerPage: 8, currentPage: pageNumber}  let index = index">
   <tr>
-    <!--th class="col-0" scope="row" [hidden]="true">{{index}}</th-->
     <td class="col-3">{{transactionModel.recipient}}</td>
     <td class="col-3">{{transactionModel.description }}</td>
     <td class="col-3">{{transactionModel.amount | currency: 'EUR' : 'symbol':'2.0-0':'fr'}}</td>
@@ -20,32 +18,3 @@
 </table>
 </div>
 <pagination-controls class="text-center" (pageChange)="pageNumber = $event" previousLabel="" nextLabel=""></pagination-controls>
-<!--div
-  *ngFor="let transactionModel of (transactions$ | async)! | paginate:{itemsPerPage: 5, currentPage: pageNumber}">
-
- {{transactionModel.recipient}}
-  {{transactionModel.description}}
-  {{transactionModel.amount }}
-
-</div>
-<pagination-controls (pageChange)="pageNumber = $event" previousLabel="" nextLabel=""></pagination-controls-->
-
-
-
-<!--nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav-->
