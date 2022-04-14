@@ -14,6 +14,9 @@
     <div class="col-4 pt-3">
       <button type="submit" (click)="onSubmit()" class="btn btn-primary">Add Connection</button>
     </div>
+    <div *ngIf="alert==true" class="alert alert-success m-auto" role="alert">
+      Connection successfully added !
+    </div>
   </div>
   <div class=""><a routerLink="" routerLinkActive="active">Retour</a></div>
 </div>

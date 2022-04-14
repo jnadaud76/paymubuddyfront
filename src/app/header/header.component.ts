@@ -8,10 +8,10 @@ import {LoginService} from "../shared/login.service";
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private loginService: LoginService) {}
-
-  ngOnInit(): void {
+  constructor(private loginService: LoginService) {
   }
+
+  ngOnInit(): void {}
 
   onLogout() {
     this.loginService.logout();

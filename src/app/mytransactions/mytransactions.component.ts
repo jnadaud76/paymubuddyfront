@@ -23,4 +23,8 @@ export class MytransactionsComponent implements OnInit {
     this.transactions$ = this.transactionService.getUserTransactions(this.currentUser.id!);
 
   }
+  refresh(): void {
+    window.location.reload();
+  }
+
 }

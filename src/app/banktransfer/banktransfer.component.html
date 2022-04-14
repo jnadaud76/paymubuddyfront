@@ -24,6 +24,12 @@
         Transfer to bank
       </button>
     </div>
+    <div *ngIf="alert1==true" class="alert alert-success m-auto" role="alert">
+      Transfer success !
+    </div>
+    <div *ngIf="alert3==true" class="alert alert-danger m-auto" role="alert">
+      Transfer canceled you don't have enough money.
+    </div>
   </div>
 
   <h3 class="text-center pt-5">Transfer money from your bank</h3>
@@ -46,7 +52,9 @@
               [disabled]="controlFromBank.invalid">Transfer From bank
       </button>
     </div>
-
+    <div *ngIf="alert2==true" class="alert alert-success m-auto" role="alert">
+      Transfer success !
+    </div>
   </div>
   <div><a routerLink="" routerLinkActive="active">Retour</a></div>
 </div>

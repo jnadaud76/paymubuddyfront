@@ -15,6 +15,9 @@ export class BanktransferComponent implements OnInit {
   amountFromBank!: number
   controlToBank = new FormControl('', [Validators.required]);
   controlFromBank = new FormControl('', [Validators.required]);
+  alert1: boolean = false
+  alert2: boolean = false
+  alert3: boolean = false
 
   constructor(private loginService: LoginService, private personService: PersonService) {
   }
@@ -27,13 +30,26 @@ export class BanktransferComponent implements OnInit {
     this.personService.toIbanTransfer(this.currentUser.id!, this.amountToBank).subscribe();
     if (this.currentUser.amountAvailable! >= 0 && this.amountToBank > 0 && this.currentUser.amountAvailable! >= this.amountToBank) {
       this.currentUser.amountAvailable = this.currentUser.amountAvailable! - this.amountToBank;
+      this.alert1 = true;
+      setTimeout(this.resetAlert, 3000);
     } else if (this.currentUser.amountAvailable! >= 0 && this.currentUser.amountAvailable! < this.amountToBank) {
       this.currentUser.amountAvailable = this.currentUser.amountAvailable!;
+      this.alert3 = true;
+      setTimeout(this.resetAlert, 3000);
     } else {
       this.currentUser.amountAvailable = 0;
+      this.alert1 = true;
+      setTimeout(this.resetAlert, 3000);
     }
     let newCurrentUserData = JSON.stringify(this.currentUser)
     localStorage.setItem("currentUser", newCurrentUserData)
+
+  }
+
+  resetAlert() {
+    this.alert1 = false
+    this.alert2 = false
+    window.location.reload();
   }
 
 
@@ -46,6 +62,8 @@ export class BanktransferComponent implements OnInit {
     }
     let newCurrentUserData = JSON.stringify(this.currentUser)
     localStorage.setItem("currentUser", newCurrentUserData)
+    this.alert2 = true;
+    setTimeout(this.resetAlert, 3000);
   }
 
 }

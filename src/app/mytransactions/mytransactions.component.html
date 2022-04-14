@@ -1,6 +1,6 @@
 <div class="col-8 mx-auto">
   <h2>My Transactions</h2>
-<table class="table table-borderless text-center">
+<table aria-label="transactions" class="table table-borderless text-center">
   <thead class="table-success">
   <tr>
     <th class="col-3" scope="col">Connections</th>
@@ -8,8 +8,8 @@
     <th class="col-3" scope="col">Amount</th>
   </tr>
   </thead>
-  <tbody *ngFor="let transactionModel of (transactions$ | async)! | paginate:{itemsPerPage: 8, currentPage: pageNumber}  let index = index">
-  <tr>
+  <tbody >
+  <tr *ngFor="let transactionModel of (transactions$ | async)! | paginate:{itemsPerPage: 8, currentPage: pageNumber}">
     <td class="col-3">{{transactionModel.recipient}}</td>
     <td class="col-3">{{transactionModel.description }}</td>
     <td class="col-3">{{transactionModel.amount | currency: 'EUR' : 'symbol':'2.0-0':'fr'}}</td>

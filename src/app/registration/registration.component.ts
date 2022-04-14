@@ -5,14 +5,12 @@ import {PersonModel} from "../shared/person.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MustMatch} from "../shared/must-match.validator";
 
-
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
-
 
   registerForm!: FormGroup;
   user: PersonModel = {
@@ -29,22 +27,22 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      lastName: ['', Validators.required],
-      firstName: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(8),
-        Validators.maxLength(20), Validators.pattern("(?=.{8,20}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\\W).*$")]],
-      confirmPassword: ['', Validators.required],
-      iban: ['', [Validators.required, Validators.minLength(27), Validators.maxLength(34)]]
+      email: ['', {validators: Validators.required}],
+      lastName: ['', {validators: Validators.required}],
+      firstName: ['', {validators: Validators.required}],
+      password: ['', {
+        validators: [Validators.required, Validators.minLength(8),
+          Validators.maxLength(20), Validators.pattern("(?=.{8,20}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\\W).*$")]
+      }],
+      confirmPassword: ['', {validators: Validators.required}],
+      iban: ['', {validators: [Validators.required, Validators.minLength(27), Validators.maxLength(34)]}]
     }, {
       validator: MustMatch('password', 'confirmPassword'),
+      updateOn: 'blur'
     });
-
   }
 
-
   onSubmitForm() {
-
     this.user = {
       email: this.registerForm.value.email,
       lastName: this.registerForm.value.lastName,

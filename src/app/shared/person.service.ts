@@ -3,14 +3,12 @@ import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class PersonService {
 
   constructor(private http: HttpClient) {
-
   }
 
   getAllPerson(): Observable<PersonModel[]> {
@@ -43,5 +41,4 @@ export class PersonService {
     // @ts-ignore
     return this.http.put<any>(`api/fromiban?personId=${personId}&amount=${amount}`);
   }
-
 }

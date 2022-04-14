@@ -8,9 +8,7 @@ import {TransactionModel} from "./transaction.model";
 })
 export class TransactionService {
 
-
   constructor(private http: HttpClient) {
-
   }
 
   getAllTransactions(): Observable<TransactionModel[]> {

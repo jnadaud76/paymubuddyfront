@@ -17,6 +17,7 @@ export class AddconnectionComponent implements OnInit {
   connection!: FormControl
   personId!: number
   connectionId!: number
+  alert: boolean = false
 
   constructor(private loginService: LoginService,
               private personService: PersonService,
@@ -34,6 +35,13 @@ export class AddconnectionComponent implements OnInit {
     this.connectionId = this.connection.value;
     console.log(this.personId, this.connectionId);
     this.personService.addConnection(this.personId, this.connectionId).subscribe();
+    this.alert = true;
+    setTimeout(this.resetAlert, 3000);
+  }
+
+  resetAlert() {
+    this.alert = false
+    window.location.reload();
   }
 
 }

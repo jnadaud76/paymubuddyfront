@@ -7,17 +7,13 @@ import {AuthGuard} from "./shared/auth.guard.service";
 import {AddconnectionComponent} from "./addconnection/addconnection.component";
 import {BanktransferComponent} from "./banktransfer/banktransfer.component";
 
-
 const routes: Routes = [
-
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: 'addconnection', component: AddconnectionComponent, canActivate: [AuthGuard]},
   {path: 'banktransfer', component: BanktransferComponent, canActivate: [AuthGuard]},
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
-
-
 ];
 
 @NgModule({

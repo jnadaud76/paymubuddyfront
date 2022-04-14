@@ -18,11 +18,9 @@ export class LoginService {
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
-
   public get currentUserValue(): any {
     return this.currentUserSubject.value;
   }
-
 
   login(username: string, password: string) {
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username + ":" + password)})
@@ -47,10 +45,8 @@ export class LoginService {
     this.router.navigate(['/login'])
   }
 
-
   saveUser(user: PersonModel): any {
     return this.http.post('api/person', user);
   }
-
 
 }
