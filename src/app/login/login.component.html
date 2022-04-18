@@ -9,12 +9,12 @@
     <div class="col-11 mx-auto mt-5 py-2">
       <label>Mail: </label>
       <input id="email" type="text" class="form-control" name="email" [(ngModel)]="username"
-             placeholder="&#x2709; Entrer votre email."><br>
+             placeholder="&#x2709; Email"><br>
     </div>
     <div class="col-11 m-auto py-2">
       <label>Password: </label>
       <input id="password" type="password" class="form-control" name="password " [(ngModel)]="password"
-             placeholder="&#10033; Entrer votre mot de passe"><br>
+             placeholder="&#10033; Password"><br>
     </div>
     <div *ngIf="alert==true" class="alert alert-warning col-11 m-auto" role="alert">
       Error, check your email and password !
@@ -26,7 +26,7 @@
         <h5>Remember me</h5>
       </label>
     </div>
-    <div class="text-center"><a routerLink="/registration" routerLinkActive="active">Créer un compte</a></div>
+    <div class="text-center"><a routerLink="/registration" routerLinkActive="active">Create an account</a></div>
 
     <div class="text-center m-auto p-5"><input type="submit" class="btn btn-primary btn-lg"
                                                [disabled]="!username || !password" value="   Login   "></div>

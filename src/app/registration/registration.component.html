@@ -1,11 +1,11 @@
 <div class="registration-container col-5 border border-dark rounded py-5 m-auto">
   <form [formGroup]="registerForm">
     <div class="text-center">
-      <h1>Formulaire d'inscription</h1>
+      <h1>Registration form</h1>
     </div>
     <div class="form-group col-11 mx-5 my-4">
       <label for="email">Email</label><br>
-      <input class="col-11" id="email" type="text" placeholder="&#x2709; Entrer votre email" formControlName="email">
+      <input class="col-11" id="email" type="text" placeholder="&#x2709; Email" formControlName="email">
       <div class="alert-danger col-11"
            *ngIf="registerForm.controls['email'].invalid && registerForm.controls['email'].touched">Email is
         required
@@ -13,7 +13,7 @@
     </div>
     <div class="form-group  col-11 mx-5 my-4">
       <label for="lastName">Last Name</label><br>
-      <input class="col-11" id="lastName" type="text" placeholder="Entrer votre nom" formControlName="lastName">
+      <input class="col-11" id="lastName" type="text" placeholder="Last name" formControlName="lastName">
       <div class="alert-danger col-11"
            *ngIf="registerForm.controls['lastName'].hasError('required') && registerForm.controls['lastName'].touched">
         Last Name is required
@@ -21,7 +21,7 @@
     </div>
     <div class="form-group  col-11 mx-5 my-4">
       <label for="firstName">First Name</label><br>
-      <input class="col-11" id="firstName" type="text" placeholder="Entrer votre prenom" formControlName="firstName">
+      <input class="col-11" id="firstName" type="text" placeholder="First name" formControlName="firstName">
       <div class="alert-danger col-11"
            *ngIf="registerForm.controls['firstName'].hasError('required') && registerForm.controls['firstName'].touched">
         First Name is required
@@ -29,7 +29,7 @@
     </div>
     <div class="form-group col-11 mx-5 my-4">
       <label for="password">Password</label><br>
-      <input class="col-11" id="password" type="password" placeholder="&#10033; Entrer un mot de passe"
+      <input class="col-11" id="password" type="password" placeholder="&#10033; Password"
              formControlName="password">
       <div class="alert-danger col-11"
            *ngIf="registerForm.controls['password'].hasError('required') && registerForm.controls['password'].touched">
@@ -51,7 +51,7 @@
     </div>
     <div class="form-group col-11 mx-5 my-4">
       <label for="confirmPassword"></label>Confirm password<br>
-      <input class="col-11" id="confirmPassword" type="password" placeholder="&#10033; Confirmer le mot de passe"
+      <input class="col-11" id="confirmPassword" type="password" placeholder="&#10033; Confirm password"
              formControlName="confirmPassword">
       <div class="alert-danger col-11"
            *ngIf="registerForm.controls['confirmPassword'].hasError('required') && registerForm.controls['confirmPassword'].touched">
@@ -60,24 +60,24 @@
     </div>
     <div class="form-group col-11 mx-5 my-4">
       <label for="iban">IBAN</label><br>
-      <input class="col-11" id="iban" type="text" placeholder="Entrer votre IBAN" formControlName="iban">
+      <input class="col-11" id="iban" type="text" placeholder="IBAN" formControlName="iban">
       <div class="alert-danger col-11"
            *ngIf="registerForm.controls['iban'].hasError('required') && registerForm.controls['iban'].touched">IBAN is
         required
       </div>
       <div class="alert-danger col-11"
-           *ngIf="registerForm.controls['iban'].hasError('minlength') && registerForm.controls['iban'].touched">Password
+           *ngIf="registerForm.controls['iban'].hasError('minlength') && registerForm.controls['iban'].touched">IBAN
         must be at least 27 characters
       </div>
       <div class="alert-danger col-11"
-           *ngIf="registerForm.controls['iban'].hasError('maxlength') && registerForm.controls['iban'].touched">Password
+           *ngIf="registerForm.controls['iban'].hasError('maxlength') && registerForm.controls['iban'].touched">IBAN
         must be a maximum of 34 characters
       </div>
     </div>
     <div class="text-center mt-5">
-      <button type="submit" (click)="onSubmitForm()" class="btn btn-primary" [disabled]="registerForm.invalid">Valider
+      <button type="submit" (click)="onSubmitForm()" class="btn btn-primary" [disabled]="registerForm.invalid">Validate
       </button>
     </div>
-    <div class="col-11 mx-5"><a routerLink="" routerLinkActive="active">Retour</a></div>
+    <div class="col-11 mx-5"><a routerLink="" routerLinkActive="active">Back</a></div>
   </form>
 </div>
