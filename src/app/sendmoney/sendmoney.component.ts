@@ -19,6 +19,7 @@ export class SendmoneyComponent implements OnInit {
   userConnection$!: Observable<PersonModel[]>
   alert: boolean = false;
   alert2: boolean = false;
+  feeRate: number = 0.005;
   transaction: TransactionModel = {
     recipient: 0,
     sender: 0,
@@ -56,17 +57,13 @@ export class SendmoneyComponent implements OnInit {
     }
 
     this.transactionService.saveTransaction(this.transaction).subscribe();
-    if (this.currentUser.amountAvailable! >= 0 && this.currentUser.amountAvailable! >= this.sendMoneyForm.value.amount) {
-      this.currentUser.amountAvailable = this.currentUser.amountAvailable! - this.sendMoneyForm.value.amount;
+    if (this.currentUser.amountAvailable! >= 0 && this.currentUser.amountAvailable! >= (this.sendMoneyForm.value.amount + (this.sendMoneyForm.value.amount * this.feeRate))) {
+      this.currentUser.amountAvailable = this.currentUser.amountAvailable! - (this.sendMoneyForm.value.amount + (this.sendMoneyForm.value.amount * this.feeRate));
       this.alert = true;
       setTimeout(this.resetAlert, 3000);
-    } else if (this.currentUser.amountAvailable! >= 0 && this.currentUser.amountAvailable! < this.sendMoneyForm.value.amount) {
+    } else if (this.currentUser.amountAvailable! >= 0 && this.currentUser.amountAvailable! < (this.sendMoneyForm.value.amount + (this.sendMoneyForm.value.amount * this.feeRate))) {
       this.currentUser.amountAvailable = this.currentUser.amountAvailable!;
       this.alert2 = true;
-      setTimeout(this.resetAlert, 3000);
-    } else {
-      this.currentUser.amountAvailable = 0;
-      this.alert = true;
       setTimeout(this.resetAlert, 3000);
     }
     let newCurrentUserData = JSON.stringify(this.currentUser)
